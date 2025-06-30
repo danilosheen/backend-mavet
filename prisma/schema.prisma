@@ -1,0 +1,45 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../src/generated/prisma/client"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Doencas {
+  id        String          @id @default(uuid())
+  nome      String
+  remedios  DoencaRemedio[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+model Remedios {
+  id                  String          @id @default(uuid())
+  nome                String
+  descricao           String?
+  doseMinCao          Float?
+  doseMaxCao          Float?
+  doseMinGato         Float?
+  doseMaxGato         Float?
+  frequenciaDeUsoCao  String?
+  frequenciaDeUsoGato String?
+  doencas             DoencaRemedio[]
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+}
+
+model DoencaRemedio {
+  id        String   @id @default(uuid())
+  doencaId  String
+  remedioId String
+  createdAt DateTime @default(now())
+
+  doenca  Doencas  @relation(fields: [doencaId], references: [id])
+  remedio Remedios @relation(fields: [remedioId], references: [id])
+
+  @@unique([doencaId, remedioId]) // impede duplicidade
+}

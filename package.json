@@ -1,0 +1,27 @@
+{
+  "name": "backend-mavet",
+  "version": "1.0.0",
+  "description": "Sistema para otimimização de tempo de consulta",
+  "homepage": "https://github.com/danilosheen/backend-mavet#readme",
+  "bugs": {
+    "url": "https://github.com/danilosheen/backend-mavet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilosheen/backend-mavet.git"
+  },
+  "license": "ISC",
+  "author": "Danilo",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "prisma": "^6.10.1"
+  }
+}
