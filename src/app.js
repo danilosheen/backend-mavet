@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 
 // Implementação das rotas
-// const pdfRoutes = require("./routes/routes");
-// const clienteRoutes = require("./routes/clienteRoutes");
+const doencasRoutes = require("./routes/doencasRoutes");
+const remediosRoutes = require("./routes/remediosRoutes");
 
 
 const app = express();
@@ -18,8 +18,8 @@ app.use(cors({
 app.use(express.json());
 
 // use routes
-// app.use("/api/pdf", pdfRoutes);
-// app.use("/api", clienteRoutes);
+app.use("/api", doencasRoutes);
+app.use("/api", remediosRoutes);
 
 
 module.exports = app;
