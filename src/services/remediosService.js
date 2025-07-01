@@ -7,7 +7,7 @@ async function createRemedio(data) {
 
 async function getAllRemedios() {
   return await prisma.remedios.findMany({
-    orderBy: {nome}
+    orderBy: {nome: 'asc'},
   });
 }
 
